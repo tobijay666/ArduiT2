@@ -47,8 +47,39 @@
     <div>
       <h2>UltraSonic Sensor</h2>
       <table>
-
+      
       </table>
+    </div>
+    <div>
+      <h2>ALL</h2>
+      
+            <?php
+            include 'database.php';
+            $con = Database::connect();
+            $sqry="SELECT * FROM statusled ";
+
+            if(!($squ= mysqli_query($con,$sqry))){
+                echo"Data retrival failed";
+            }
+            while( $row = mysqli_fetch_assoc($squ) ){
+              echo"<table border = '1'>
+              
+              <tr>
+                <th>ID</th>
+                <th>Stat</th>
+              </tr>
+
+              <tr>
+                <td>{$row['ID']}</td>
+                <td>{$row['Stat']}</td>
+              </tr>
+
+              </table>";
+            }
+            
+
+            ?>
+      
     </div>
   </body>
 </html>
