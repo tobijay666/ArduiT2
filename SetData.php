@@ -9,6 +9,9 @@
     if ($stat === "1"){
       $stat = "Triggered";
     }
+    else if ($stat === "0"){
+      $stat = "Inactive";
+    }
 
     $sql = "UPDATE statusled SET Stat='$stat' WHERE ID='$id' ";
     
@@ -16,6 +19,6 @@
     //$data = mysqli_fetch_assoc($squ);
     Database::disconnect();
     
-    //echo $data['Stat'];
+    echo $stat;
   }
 ?>
