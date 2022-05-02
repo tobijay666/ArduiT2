@@ -24,6 +24,6 @@
     //$data = mysqli_fetch_assoc($squ);
     Database::disconnect();
     
-    echo $stat;
+    echo $state;
   }
 ?>
