@@ -1,3 +1,7 @@
+<?php
+            include 'database.php';
+            $con = Database::connect();
+            ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -46,16 +50,39 @@
 
     <div>
       <h2>UltraSonic Sensor</h2>
-      <table>
       
-      </table>
+      <?php
+
+            $sqry="SELECT * FROM motionsensor ";
+
+            if(!($squ= mysqli_query($con,$sqry))){
+                echo"Data retrival failed";
+            }
+            while( $row = mysqli_fetch_assoc($squ) ){
+              echo"<table border = '1'>
+              
+              <tr>
+                <th>Distance</th>
+
+              </tr>
+
+              <tr>
+                <td>{$row['Distance']}</td>
+
+              </tr>
+
+              </table>";
+            }
+            
+
+            ?>
+
     </div>
     <div>
       <h2>ALL</h2>
       
             <?php
-            include 'database.php';
-            $con = Database::connect();
+
             $sqry="SELECT * FROM statusled ";
 
             if(!($squ= mysqli_query($con,$sqry))){
