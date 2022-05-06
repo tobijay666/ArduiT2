@@ -15,7 +15,7 @@
             $sql = "UPDATE statusled SET Stat = '$Stat' WHERE ID = $Id";
             mysqli_query($cont,$sql);
             Database::disconnect();
-            header("Location: Main2.php");
+            header("Location: ControlDevices.php");
        // }
     }
  

@@ -9,11 +9,11 @@
 
     $distance = (int) $stat;
 
-    if ($distance <= 10){
+    if ($distance <= 20){
       $state = "Triggered";
     }
 
-    else if ($distance > 10){
+    else if ($distance > 20){
       $state = "Inactive";
     }
 
@@ -21,6 +21,8 @@
     $sql = "UPDATE statusled SET Stat='$state' WHERE ID='$id' ";
     
     $squ = mysqli_query($cont,$sql);
+    $squ = mysqli_query($cont,$sql2);
+
     //$data = mysqli_fetch_assoc($squ);
     Database::disconnect();
     
