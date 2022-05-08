@@ -57,8 +57,9 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Control Devices</a></li>
-                            <li class="scroll-to-section"><a href="#features" >Sensor Details  </a></li>
+                            <li class="scroll-to-section"><a href="ControlDevices.php" class="active">Control Devices</a></li>
+                            <li class="scroll-to-section"><a href="SensorDet.php" >Sensor Details  </a></li>
+                            <li class="scroll-to-section"><a href="Stat.php" >Auto Control  </a></li>
                             <li></li>
                         </ul>        
                         <a class='menu-trigger'>
@@ -99,6 +100,7 @@
                                 <tr>
                                     <td class="day-time">Status</td>
                                     <td >
+                                            <em>Click to turn:</em>
                                          <?php
 
                                         $sqry="SELECT * FROM statusled where ID = 0 ";
@@ -114,7 +116,15 @@
                                                 <form action='updateDB.php' method='POST'>
                                                 <input type='hidden' name='Stat' value='On'>
                                                 <input type='hidden' name='Id' value='0'>
-                                                <input type='Submit' value='Off'>
+                                                <input style='display: inline-block;
+                                                font-size: 15px;
+                                                padding: 12px 20px;
+                                                background-color: #ed563b;
+                                                color: #fff;
+                                                text-align: center;
+                                                font-weight: 400;
+                                                text-transform: uppercase;
+                                                transition: all .3s;' type='Submit' value='Off'>
                                                 </form>
                                                 </div>
                                                 </div>";
@@ -126,15 +136,25 @@
                                                 <form action='updateDB.php' method='POST'>
                                                 <input type='hidden' name='Stat' value='Off'>
                                                 <input type='hidden' name='Id' value='0'>
-                                                <input type='Submit' value='On'>
+                                                <input style='display: inline-block;
+                                                font-size: 15px;
+                                                padding: 12px 20px;
+                                                background-color: #76ed3b;
+                                                color: #fff;
+                                                text-align: center;
+                                                font-weight: 400;
+                                                text-transform: uppercase;
+                                                transition: all .3s;' type='Submit' value='On'>
                                                 </form>
                                                 </div>
                                                 </div>";
                                         }
-                                        }
-                                    ?>
+                                        } 
+ 
+                                        //v?>
                                      </td>
                                     <td >
+                                        <em>Click to turn:</em>
                                         <?php
 
                                         $sqry="SELECT * FROM statusled where ID = 1 ";
@@ -146,14 +166,22 @@
                                             if('Off' == $row['Stat']){
                                                 echo"
                                                 <div id='tabs'>
-                                                <div  class='main-button'>
-                                                    <form action='updateDB.php' method='POST'>
-                                                    <input type='hidden' name='Stat' value='On'>
-                                                    <input type='hidden' name='Id' value='1'>
-                                                    <input type='Submit' value='Off'>
-                                                    </form>
+                                                    <div  class='main-button'>
+                                                        <form action='updateDB.php' method='POST'>
+                                                            <input type='hidden' name='Stat' value='On'>
+                                                            <input type='hidden' name='Id' value='1'>
+                                                            <input style='display: inline-block;
+                                                            font-size: 15px;
+                                                            padding: 12px 20px;
+                                                            background-color: #ed563b;
+                                                            color: #fff;
+                                                            text-align: center;
+                                                            font-weight: 400;
+                                                            text-transform: uppercase;
+                                                            transition: all .3s;' type='Submit' value='Off'>
+                                                        </form>
                                                     </div>
-                                                    </div>";
+                                                </div>";
                                             }
                                             else if ('On' == $row['Stat']){
                                                 echo"
@@ -162,7 +190,15 @@
                                                     <form action='updateDB.php' method='POST'>
                                                     <input type='hidden' name='Stat' value='Off'>
                                                     <input type='hidden' name='Id' value='1'>
-                                                    <input type='Submit' value='On'>
+                                                    <input style='display: inline-block;
+                                                    font-size: 15px;
+                                                    padding: 12px 20px;
+                                                    background-color: #76ed3b;
+                                                    color: #fff;
+                                                    text-align: center;
+                                                    font-weight: 400;
+                                                    text-transform: uppercase;
+                                                    transition: all .3s;' type='Submit' value='On'>
                                                     </form>
                                                     </div>
                                                     </div>";

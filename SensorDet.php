@@ -1,4 +1,5 @@
 <?php
+ header("Refresh: 5 ");
             include 'database.php';
             $con = Database::connect();
 
@@ -60,8 +61,9 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Control Devices</a></li>
-                            <li class="scroll-to-section"><a href="#features" >Sensor Details  </a></li>
+                            <li class="scroll-to-section"><a href="ControlDevices.php" >Control Devices</a></li>
+                            <li class="scroll-to-section"><a href="SensorDet.php" class="active">Sensor Details  </a></li>
+                            <li class="scroll-to-section"><a href="Stat.php" >Auto Control  </a></li>
                             <li></li>
                         </ul>        
                         <a class='menu-trigger'>
@@ -97,6 +99,7 @@
                         $stat2 = $row2['Distance'];
                 }
                 $dis = (int) $stat2;
+                $dis = ($dis/400)*100;
 
                 $sqry="SELECT * FROM statusled where ID = 3 ";
 
