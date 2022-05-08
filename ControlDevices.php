@@ -298,7 +298,7 @@
                 <div class="col-lg-12">
                     <p>Copyright &copy; 2022 Electra Corp.
                     
-                    - Designed by <a rel="nofollow" href="https://templatemo.com" class="tm-text-link" target="_parent">Team Electra</a></p>
+                    - Designed by <a rel="nofollow" href="https://electra-bravo.tech/" class="tm-text-link" target="_parent">Team Electra</a></p>
                     
                     
                 </div>

@@ -98,7 +98,10 @@
                     while( $row2 = mysqli_fetch_assoc($squ2) ){
                         $stat2 = $row2['Distance'];
                 }
+                //getting the current range of the motion sensor.
                 $dis = (int) $stat2;
+
+                //calculating the average range and generating the percentage of the result.
                 $dis = ($dis/400)*100;
 
                 $sqry="SELECT * FROM statusled where ID = 3 ";
@@ -116,11 +119,14 @@
                 }
                 while( $row3 = mysqli_fetch_assoc($squ1) ){
                     $stat4 = $row3['Stat'];}
-                    
+                    //getting Temperature
                     $val1 = (int) $stat3;
+                    //getting Smoke detector details
                     $val2 = (int) $stat4;
 
-                    $smk = (($val1/250)*100 + ($val2/35)*100)/2;
+                    //Calculating the average value and the truth factor of a fire 
+                    //outbreak. Calculating the precentage of the possibility of a outbreak.
+                    $smk = (($val1/250)*100 + ($val2/50)*100)/2;
 
 
             echo"
@@ -206,7 +212,7 @@
                 <div class="col-lg-12">
                     <p>Copyright &copy; 2022 Electra Corp.
                     
-                    - Designed by <a rel="nofollow" href="https://templatemo.com" class="tm-text-link" target="_parent">Team Electra</a></p>
+                    - Designed by <a rel="nofollow" href="https://electra-bravo.tech/" class="tm-text-link" target="_parent">Team Electra</a></p>
                     
                     
                 </div>

@@ -1,13 +1,14 @@
 <?php
             include 'database.php';
             $con = Database::connect();
-
+            
+            //checks a given time is between a certain period
             function isBetween($from, $till, $input) {
-                $f = DateTime::createFromFormat('!H:i:s', $from);
-                $t = DateTime::createFromFormat('!H:i:s', $till);
+                $fr = DateTime::createFromFormat('!H:i:s', $from);
+                $ti = DateTime::createFromFormat('!H:i:s', $till);
                 $i = DateTime::createFromFormat('!H:i:s', $input);
-                if ($f > $t) $t->modify('+1 day');
-                return ($f <= $i && $i <= $t) || ($f <= $i->modify('+1 day') && $i <= $t);
+                if ($fr > $ti) $ti->modify('+1 day');
+                return ($fr <= $i && $i <= $ti) || ($fr <= $i->modify('+1 day') && $i <= $ti);
             }
 
             if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -135,7 +136,7 @@
                                         <td>
                                         <?php
                                         
-                                        $sqry = "SELECT Time FROM output_logs WHERE ID = '0' AND Stat = 'Off' ORDER BY Date DESC Limit 100";
+                                        $sqry = "SELECT Time FROM output_logs WHERE ID = '0' AND Stat = 'Off' ORDER BY Date DESC Limit 14";
                                           
                                         if(!($squ= mysqli_query($con,$sqry))){
                                             echo"Data retrival failed";
@@ -164,7 +165,7 @@
                                         
                                         
                                         
-                                        //$array = array("17:29:53","16:00:32");
+                                        //Calculating the most optimum time based of the results
                                         $avg = date('H:i:s', array_sum(array_map('strtotime', $array1)) / count($array1));
                                         echo "$avg";
                                         
@@ -226,7 +227,7 @@
                                         <td>
                                         <?php
                                         
-                                        $sqry = "SELECT Time FROM output_logs WHERE ID = '1' AND Stat = 'On' ORDER BY Date DESC Limit 100";
+                                        $sqry = "SELECT Time FROM output_logs WHERE ID = '1' AND Stat = 'On' ORDER BY Date DESC Limit 14";
                                           
                                         if(!($squ= mysqli_query($con,$sqry))){
                                             echo"Data retrival failed";
@@ -255,7 +256,7 @@
                                         
                                         
                                         
-                                        //$array = array("17:29:53","16:00:32");
+                                        //Calculating the most optimum time based of the results
                                         $avg = date('H:i:s', array_sum(array_map('strtotime', $array1)) / count($array1));
                                         echo "$avg";
                                      
@@ -329,7 +330,7 @@
                 <div class="col-lg-12">
                     <p>Copyright &copy; 2022 Electra Corp.
                     
-                    - Designed by <a rel="nofollow" href="https://templatemo.com" class="tm-text-link" target="_parent">Team Electra</a></p>
+                    - Designed by <a rel="nofollow" href="https://electra-bravo.tech/" class="tm-text-link" target="_parent">Team Electra</a></p>
                     
                     
                 </div>
